@@ -15,7 +15,8 @@ export default function Createpage() {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                }, body: JSON.stringify(newItem),
+                }, 
+                body: JSON.stringify(newItem),
             });
 
             if (!res.ok) {
@@ -30,24 +31,49 @@ export default function Createpage() {
     }
 
     return (
-        <div className="text-center flex-col">
-            <h1 className="text-4xl font-bold mb-4">Upload Art</h1>
-            <button onClick={() => navigate("/")}>Back</button>
+        <div className="container mx-auto px-4 py-8">
+            <h1 className="text-4xl font-bold mb-8 text-center">Upload Art</h1>
+            <div className="max-w-md mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
+                <button 
+                    onClick={() => navigate("/")}
+                    className="mb-6 text-blue-400 hover:text-blue-300 transition duration-300"
+                >
+                    &larr; Back to Gallery
+                </button>
 
-            <input type="text"
-            placeholder="Name"
-            value={newItem.name}
-            onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}/>
+                <div className="space-y-4">
+                    <input 
+                        type="text"
+                        placeholder="Name"
+                        value={newItem.name}
+                        onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
+                        className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
 
-            <input placeholder="Year"
-            value={newItem.year}
-            onChange={(e) => setNewItem({ ...newItem, year: e.target.value })}/>
+                    <input 
+                        type="text"
+                        placeholder="Year"
+                        value={newItem.year}
+                        onChange={(e) => setNewItem({ ...newItem, year: e.target.value })}
+                        className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
 
-            <input placeholder="Image URL"
-            value={newItem.image}
-            onChange={(e) => setNewItem({ ...newItem, image: e.target.value })}/>
+                    <input 
+                        type="text"
+                        placeholder="Image URL"
+                        value={newItem.image}
+                        onChange={(e) => setNewItem({ ...newItem, image: e.target.value })}
+                        className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
 
-            <button onClick={ submitItem }>Submit</button>
+                    <button 
+                        onClick={submitItem}
+                        className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300"
+                    >
+                        Submit
+                    </button>
+                </div>
+            </div>
         </div>
-  )
+    )
 }

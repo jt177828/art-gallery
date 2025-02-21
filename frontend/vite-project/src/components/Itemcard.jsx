@@ -1,11 +1,11 @@
-import { React } from "react"
-
-export default function Itemcard({item}) {
+export default function Itemcard({ item }) {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-        <h4 className="text-gray-700 text-base">{item.name}</h4>
-        <img className="w-full h-48 object-cover" src={item.image} alt={item.name}></img>
-        <h4 className="text-gray-700 text-base">{item.year}</h4>
+    <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl hover:scale-105">
+      <img className="w-full h-48 object-cover" src={item.image || "/placeholder.svg"} alt={item.name} />
+      <div className="p-4">
+        <h4 className="text-xl font-semibold mb-2">{item.name}</h4>
+        <p className="text-gray-400">{item.year}</p>
+      </div>
     </div>
   )
 }
