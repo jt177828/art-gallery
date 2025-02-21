@@ -23,7 +23,7 @@ export default function Createpage() {
             }
             const result = await res.json();
             console.log("Success:", result);
-            navigate("/create");
+            navigate("/");
         } catch (error) {
             console.error("Error: ", error);
         }

@@ -1,7 +1,26 @@
 import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom"
+import { useState, useEffect } from 'react';
 
 export default function Homepage() {
     const navigate = useNavigate();
+
+    const [items, setItems] = useState();
+
+    useEffect(() => {
+        const fetchItems = async () => {
+            try {
+                const res = await fetch("http://localhost:5000/api/items");
+                if (!res.ok) {
+                    throw new Error("Failed to fetch items");
+                }
+                const data = await res.json();
+                setItems(data);
+            } catch (error) {
+                console.error("Error fetching items:", error);
+            }
+        };
+        fetchItems();
+    }, []);
 
     return (
         <div className="text-center">
