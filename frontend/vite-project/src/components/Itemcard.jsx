@@ -1,7 +1,6 @@
 import { React } from "react"
 
 export default function Itemcard({item}) {
-
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
         <h4 className="text-gray-700 text-base">{item.name}</h4>
